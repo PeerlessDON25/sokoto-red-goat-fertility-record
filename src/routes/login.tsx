@@ -123,17 +123,7 @@ function LoginPage() {
             </form>
           </Form>
 
-          <p className="mt-6 rounded-md bg-secondary/70 p-3 text-xs text-muted-foreground">
-            Default credentials —{" "}
-            <span className="font-medium text-foreground">
-              {DEFAULT_CREDENTIALS.username}
-            </span>{" "}
-            /{" "}
-            <span className="font-medium text-foreground">
-              {DEFAULT_CREDENTIALS.password}
-            </span>
-            . Change them in Settings after signing in.
-          </p>
+        
         </div>
       </div>
     </div>
