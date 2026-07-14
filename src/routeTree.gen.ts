@@ -13,6 +13,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppSettingsRouteImport } from './routes/_app.settings'
+import { Route as AppFertilityRecordsRouteImport } from './routes/_app.fertility-records'
 import { Route as AppFarmInformationRouteImport } from './routes/_app.farm-information'
 import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
 
@@ -35,6 +36,11 @@ const AppSettingsRoute = AppSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => AppRoute,
 } as any)
+const AppFertilityRecordsRoute = AppFertilityRecordsRouteImport.update({
+  id: '/fertility-records',
+  path: '/fertility-records',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppFarmInformationRoute = AppFarmInformationRouteImport.update({
   id: '/farm-information',
   path: '/farm-information',
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/dashboard': typeof AppDashboardRoute
   '/farm-information': typeof AppFarmInformationRoute
+  '/fertility-records': typeof AppFertilityRecordsRoute
   '/settings': typeof AppSettingsRoute
 }
 export interface FileRoutesByTo {
@@ -58,6 +65,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/dashboard': typeof AppDashboardRoute
   '/farm-information': typeof AppFarmInformationRoute
+  '/fertility-records': typeof AppFertilityRecordsRoute
   '/settings': typeof AppSettingsRoute
 }
 export interface FileRoutesById {
@@ -67,13 +75,26 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/_app/dashboard': typeof AppDashboardRoute
   '/_app/farm-information': typeof AppFarmInformationRoute
+  '/_app/fertility-records': typeof AppFertilityRecordsRoute
   '/_app/settings': typeof AppSettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/dashboard' | '/farm-information' | '/settings'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/dashboard'
+    | '/farm-information'
+    | '/fertility-records'
+    | '/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/dashboard' | '/farm-information' | '/settings'
+  to:
+    | '/'
+    | '/login'
+    | '/dashboard'
+    | '/farm-information'
+    | '/fertility-records'
+    | '/settings'
   id:
     | '__root__'
     | '/'
@@ -81,6 +102,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/_app/dashboard'
     | '/_app/farm-information'
+    | '/_app/fertility-records'
     | '/_app/settings'
   fileRoutesById: FileRoutesById
 }
@@ -120,6 +142,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppSettingsRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/fertility-records': {
+      id: '/_app/fertility-records'
+      path: '/fertility-records'
+      fullPath: '/fertility-records'
+      preLoaderRoute: typeof AppFertilityRecordsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/farm-information': {
       id: '/_app/farm-information'
       path: '/farm-information'
@@ -140,12 +169,14 @@ declare module '@tanstack/react-router' {
 interface AppRouteChildren {
   AppDashboardRoute: typeof AppDashboardRoute
   AppFarmInformationRoute: typeof AppFarmInformationRoute
+  AppFertilityRecordsRoute: typeof AppFertilityRecordsRoute
   AppSettingsRoute: typeof AppSettingsRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppDashboardRoute: AppDashboardRoute,
   AppFarmInformationRoute: AppFarmInformationRoute,
+  AppFertilityRecordsRoute: AppFertilityRecordsRoute,
   AppSettingsRoute: AppSettingsRoute,
 }
 
