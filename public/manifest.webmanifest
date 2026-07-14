@@ -1,6 +1,6 @@
 {
-  "name": "Sokoto Red Goat Fertility Record Book",
-  "short_name": "SR Fertility",
+  "name": "Sokoto Red Goat Record",
+  "short_name": "SRG Record",
   "description": "Digital fertility record book for the Sokoto Red Goat.",
   "start_url": "/",
   "scope": "/",
