@@ -1,0 +1,14 @@
+{
+  "name": "Sokoto Red Goat Fertility Record Book",
+  "short_name": "SR Fertility",
+  "description": "Digital fertility record book for the Sokoto Red Goat.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6ecd6",
+  "theme_color": "#5a3a1e",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "64x64 32x32 24x24 16x16", "type": "image/x-icon" }
+  ]
+}
