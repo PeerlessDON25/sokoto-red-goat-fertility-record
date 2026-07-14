@@ -28,13 +28,13 @@ const schema = z.object({
   serviceDate: z.string().min(1, "Service date is required"),
   buckTag: z.string().min(1, "Buck tag is required"),
   serviceType: z.enum(["Natural", "Artificial Insemination"]),
-  expectedKiddingDate: z.string().optional().default(""),
-  actualKiddingDate: z.string().optional().default(""),
-  kidsBorn: z.coerce.number().int().min(0).default(0),
-  maleKids: z.coerce.number().int().min(0).default(0),
-  femaleKids: z.coerce.number().int().min(0).default(0),
-  kidsAlive: z.coerce.number().int().min(0).default(0),
-  remarks: z.string().optional().default(""),
+  expectedKiddingDate: z.string(),
+  actualKiddingDate: z.string(),
+  kidsBorn: z.coerce.number().int().min(0),
+  maleKids: z.coerce.number().int().min(0),
+  femaleKids: z.coerce.number().int().min(0),
+  kidsAlive: z.coerce.number().int().min(0),
+  remarks: z.string(),
 });
 
 export type FertilityFormValues = z.infer<typeof schema>;
